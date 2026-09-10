@@ -20,7 +20,6 @@ typedef struct Node{
     int x;
     int y;
     float* childCosts;
-    float* parentCosts;
 } Node;
 
 typedef struct {
@@ -31,7 +30,7 @@ typedef struct {
 /* Function declarations */
 Node* create_node(char name, int x, int y);
 void addParent(Node* node, Node* parent);
-void addChild(Node* node, Node* child);
+void addChild(Node* node, Node* child, float cost);
 void free_node(Node* node);
 
 #endif

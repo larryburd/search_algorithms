@@ -2,62 +2,74 @@
     "A": {
         "x": 0,
         "y": 0,
-        "parents": []
+        "parents": [],
+        "weights": []
     },
     "B": {
         "x": 30,
         "y": 0,
-        "parents": ["A"]
+        "parents": ["A"],
+        "weights": [50]
     },
     "C": {
         "x": 70,
         "y": 10,
-        "parents": ["B", "E"]
+        "parents": ["B", "E"],
+        "weights": [40, 90]
     },
     "D": {
         "x": 10,
         "y": 40,
-        "parents": ["A"]
+        "parents": ["A"],
+        "weights": [80]
     },
     "E": {
         "x": 40,
         "y": 50,
-        "parents": ["B", "D"]
+        "parents": ["B", "D"],
+        "weights": [60, 80]
     },
     "F": {
         "x": 80,
         "y": 40, 
-        "parents": ["C"]
+        "parents": ["C"],
+        "weights": [30]
     },
     "G": {
         "x": 20,
         "y": 50,
-        "parents": ["D"]
+        "parents": ["D"],
+        "weights": [50]
     },
     "H": {
         "x": 50,
         "y": 70,
-        "parents": ["G"]
+        "parents": ["G"],
+        "weights": [65]
     },
     "M": {
         "x": 90,
         "y": 70,
-        "parents": ["F"]
+        "parents": ["F"],
+        "weights": [40]
     },
     "N": {
         "x": 20,
         "y": 90,
-        "parents": ["G"]
+        "parents": ["G"],
+        "weights": [60]
     },
     "P": {
         "x": 50,
         "y": 90,
-        "parents": ["H", "N"]
+        "parents": ["H", "N"],
+        "weights": [40, 45]
     },
     "S": {
         "x": 100,
         "y": 100,
-        "parents": ["M"]
+        "parents": ["M"],
+        "weights": [25]
     }
 }
 
