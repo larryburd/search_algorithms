@@ -1,6 +1,7 @@
 #include "str_util/string_util.h"
 #include "algs/dfs.h"
 #include "algs/bfs.h"
+#include "algs/greedy.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "node.h"
@@ -116,6 +117,15 @@ int main(int argc, char* argv[]) {
     print_path(path);
     free_path(path);
 
+    // Perform Greedy search from A to S
+    printf("\n========================================\n");
+    printf("GREEDY SEARCH\n");
+    printf("Start: A → Goal: S\n");
+    printf("========================================\n");
+
+    path = greedy_search(graph, 'A', 'S');
+    print_path(path);
+    free_path(path);
     // Free graph nodes
     for (int i = 0; i < graph.numNodes; i++) {
         free_node(graph.nodes[i]);
