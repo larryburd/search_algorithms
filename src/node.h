@@ -1,5 +1,9 @@
 #define INIT_CAP 10
+#define MAX_NODES 20
+
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* A node data structure for use in searching */
 typedef struct Node{
@@ -15,6 +19,11 @@ typedef struct Node{
     float* childCosts;
     float* parentCosts;
 } Node;
+
+typedef struct {
+    Node* nodes[MAX_NODES];
+    int numNodes;
+} Graph;
 
 Node* create_node(char name, int x, int y) {
     Node* node = malloc(sizeof(Node));

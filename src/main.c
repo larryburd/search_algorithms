@@ -1,4 +1,5 @@
 #include "str_util/string_util.h"
+#include "algs/dfs.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include "node.h"

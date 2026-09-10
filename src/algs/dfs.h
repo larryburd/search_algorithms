@@ -1,7 +1,7 @@
 #ifndef DFS_H
 #define DFS_H
 
-#include "node.h"
+#include "../node.h"
 #include <stdlib.h>
 #include <string.h>
 
