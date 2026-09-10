@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wno-format-truncation -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/test_unpack.dir/test/suites/api/test_unpack.c.o -o bin/test_unpack  lib/libjansson.a

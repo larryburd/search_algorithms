@@ -3,7 +3,7 @@
 
 /* A node data structure for use in searching */
 typedef struct Node{
-    int state;
+    char name;
     struct Node** parents;
     struct Node** children;
     int numParents;
@@ -16,9 +16,9 @@ typedef struct Node{
     float* parentCosts;
 } Node;
 
-Node* create_node(int state, int x, int y) {
+Node* create_node(char name, int x, int y) {
     Node* node = malloc(sizeof(Node));
-    node->state = state;
+    node->name = name;;
     node->numParents = 0;
     node->capParents = INIT_CAP;
     node->parents = malloc(INIT_CAP * sizeof(struct Node*));
