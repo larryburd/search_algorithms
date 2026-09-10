@@ -130,11 +130,21 @@ int main(int argc, char* argv[]) {
 
     // Perform Greedy search from A to S
     printf("\n========================================\n");
-    printf("GREEDY SEARCH\n");
+    printf("GREEDY SEARCH (HEURISTIC ONLY)\n");
     printf("Start: A → Goal: S\n");
     printf("========================================\n");
 
     path = greedy_search(graph, 'A', 'S');
+    print_path(path);
+    free_path(path);
+
+    // Perform Greedy search with edge weights from A to S
+    printf("\n========================================\n");
+    printf("GREEDY SEARCH (HEURISTIC + EDGE WEIGHTS)\n");
+    printf("Start: A → Goal: S\n");
+    printf("========================================\n");
+
+    path = greedy_search_weighted(graph, 'A', 'S');
     print_path(path);
     free_path(path);
 
