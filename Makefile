@@ -9,6 +9,8 @@ BUILD_DIR = build
 OBJECTS = $(BUILD_DIR)/node.o \
           $(BUILD_DIR)/main.o \
           $(BUILD_DIR)/dfs.o \
+          $(BUILD_DIR)/bfs.o \
+          $(BUILD_DIR)/path_util.o \
           $(BUILD_DIR)/string_util.o
 
 # Output executable
@@ -31,6 +33,12 @@ $(BUILD_DIR)/main.o: src/main.c
 $(BUILD_DIR)/dfs.o: src/algs/dfs.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(BUILD_DIR)/bfs.o: src/algs/bfs.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/path_util.o: src/algs/path_util.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 $(BUILD_DIR)/string_util.o: str_util/string_util.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -40,7 +48,7 @@ $(BUILD_DIR):
 
 # Clean build artifacts
 clean:
-	rm -rf $(BUILD_DIR) $(TARGET)
+	rm -rf $(BUILD_DIR) 
 
 # Phony targets
 .PHONY: all clean

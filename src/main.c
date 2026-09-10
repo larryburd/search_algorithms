@@ -94,6 +94,8 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    json_decref(root);
+
     // Perform DFS search from A to S
     printf("\n========================================\n");
     printf("DEPTH FIRST SEARCH (DFS)\n");
@@ -102,10 +104,17 @@ int main(int argc, char* argv[]) {
 
     char** path = dfs_search(graph, 'A', 'S');
     print_path(path);
-
-    // Free memory
     free_path(path);
-    json_decref(root);
+
+    // Perform BFS search from A to S
+    printf("\n========================================\n");
+    printf("BREADTH FIRST SEARCH (BFS)\n");
+    printf("Start: A → Goal: S\n");
+    printf("========================================\n");
+
+    path = bfs_search(graph, 'A', 'S');
+    print_path(path);
+    free_path(path);
 
     // Free graph nodes
     for (int i = 0; i < graph.numNodes; i++) {
