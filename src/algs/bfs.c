@@ -69,7 +69,7 @@ char** bfs_search(Graph graph, char start, char goal, int* checks) {
     Queue* q = create_queue();
     enqueue(q, startIdx);
     visited[startIdx] = 1;
-    ++checks;
+    (*checks)++;
 
     while (!is_empty(q)) {
         int currIdx = dequeue(q);
@@ -116,6 +116,7 @@ char** bfs_search(Graph graph, char start, char goal, int* checks) {
             /* Enqueue if not visited */
             if (childIdx != -1 && !visited[childIdx]) {
                 visited[childIdx] = 1;
+                (*checks)++;
                 parent[childIdx] = currIdx;
                 enqueue(q, childIdx);
             }

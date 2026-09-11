@@ -6,7 +6,7 @@
 static int dfs_recursive(Graph graph, int currIdx, int endIdx,
                          char visited[], char** path, int* pathIdx, int* checks) {
     visited[currIdx] = 1;
-    ++checks;
+    (*checks)++;
     path[*pathIdx] = malloc(2);
     path[*pathIdx][0] = graph.nodes[currIdx]->name;
     path[*pathIdx][1] = '\0';

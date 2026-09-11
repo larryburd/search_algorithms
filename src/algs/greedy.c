@@ -103,7 +103,7 @@ char** greedy_search(Graph graph, char start, char goal, int* checks) {
         }
 
         visited[currIdx] = 1;
-        ++checks;
+        (*checks)++;
 
         /* Check if we reached the goal */
         if (currIdx == endIdx) {
@@ -200,7 +200,7 @@ char** greedy_search_weighted(Graph graph, char start, char goal, int* checks) {
         }
 
         visited[currIdx] = 1;
-        ++checks;
+        (*checks)++;
 
         /* Check if we reached the goal */
         if (currIdx == endIdx) {
