@@ -8,6 +8,6 @@
 #define MAX_QUEUE 100
 
 /* Function declarations */
-char** bfs_search(Graph graph, char start, char goal);
+char** bfs_search(Graph graph, char start, char goal, int* checks);
 
 #endif

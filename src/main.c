@@ -114,8 +114,10 @@ int main(int argc, char* argv[]) {
     printf("Start: A → Goal: S\n");
     printf("========================================\n");
 
-    char** path = dfs_search(graph, 'A', 'S');
+    int dfsChecks = 0;
+    char** path = dfs_search(graph, 'A', 'S', &dfsChecks);
     print_path(path);
+    printf("Nodes checked: %d\n", dfsChecks);
     free_path(path);
 
     // Perform BFS search from A to S
@@ -124,8 +126,10 @@ int main(int argc, char* argv[]) {
     printf("Start: A → Goal: S\n");
     printf("========================================\n");
 
-    path = bfs_search(graph, 'A', 'S');
+    int bfsChecks = 0;
+    path = bfs_search(graph, 'A', 'S', &bfsChecks);
     print_path(path);
+    printf("Nodes checked: %d\n", bfsChecks);
     free_path(path);
 
     // Perform Greedy search from A to S
@@ -134,8 +138,10 @@ int main(int argc, char* argv[]) {
     printf("Start: A → Goal: S\n");
     printf("========================================\n");
 
-    path = greedy_search(graph, 'A', 'S');
+    int greedyChecks = 0;
+    path = greedy_search(graph, 'A', 'S', &greedyChecks);
     print_path(path);
+    printf("Nodes checked: %d\n", greedyChecks);
     free_path(path);
 
     // Perform Greedy search with edge weights from A to S
@@ -144,8 +150,10 @@ int main(int argc, char* argv[]) {
     printf("Start: A → Goal: S\n");
     printf("========================================\n");
 
-    path = greedy_search_weighted(graph, 'A', 'S');
+    int grdyWghtdChecks = 0;
+    path = greedy_search_weighted(graph, 'A', 'S', &grdyWghtdChecks);
     print_path(path);
+    printf("Nodes checked: %d\n", grdyWghtdChecks);
     free_path(path);
 
     // Free memory

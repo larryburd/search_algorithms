@@ -4,8 +4,9 @@
 #include <string.h>
 
 static int dfs_recursive(Graph graph, int currIdx, int endIdx,
-                         char visited[], char** path, int* pathIdx) {
+                         char visited[], char** path, int* pathIdx, int* checks) {
     visited[currIdx] = 1;
+    ++checks;
     path[*pathIdx] = malloc(2);
     path[*pathIdx][0] = graph.nodes[currIdx]->name;
     path[*pathIdx][1] = '\0';
@@ -32,7 +33,7 @@ static int dfs_recursive(Graph graph, int currIdx, int endIdx,
         }
 
         if (childIdx != -1 && !visited[childIdx]) {
-            if (dfs_recursive(graph, childIdx, endIdx, visited, path, pathIdx)) {
+            if (dfs_recursive(graph, childIdx, endIdx, visited, path, pathIdx, checks)) {
                 return 1; /* Goal is found */
             }
         }
@@ -44,7 +45,7 @@ static int dfs_recursive(Graph graph, int currIdx, int endIdx,
     return 0; /* Goal isn't found in this path */
 }
 
-char** dfs_search(Graph graph, char start, char goal) {
+char** dfs_search(Graph graph, char start, char goal, int* checks) {
     int startIdx = -1;
     int endIdx = -1;
     int pathIdx = 0;
@@ -69,7 +70,7 @@ char** dfs_search(Graph graph, char start, char goal) {
     }
 
     /* perform the search */
-    dfs_recursive(graph, startIdx, endIdx, visited, path, &pathIdx);
+    dfs_recursive(graph, startIdx, endIdx, visited, path, &pathIdx, checks);
 
     /* Add NULL termination to end of path array */
     path[pathIdx] = NULL;

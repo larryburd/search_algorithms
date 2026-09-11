@@ -7,6 +7,6 @@
 #define MAX_PATH_LENGTH 50
 
 /* Function declarations */
-char** dfs_search(Graph graph, char start, char goal);
+char** dfs_search(Graph graph, char start, char goal, int* checks);
 
 #endif

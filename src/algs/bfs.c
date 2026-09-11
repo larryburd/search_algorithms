@@ -39,7 +39,7 @@ void free_queue(Queue* q) {
     free(q);
 }
 
-char** bfs_search(Graph graph, char start, char goal) {
+char** bfs_search(Graph graph, char start, char goal, int* checks) {
     int startIdx = -1;
     int endIdx = -1;
     int pathIdx = 0;
@@ -69,6 +69,7 @@ char** bfs_search(Graph graph, char start, char goal) {
     Queue* q = create_queue();
     enqueue(q, startIdx);
     visited[startIdx] = 1;
+    ++checks;
 
     while (!is_empty(q)) {
         int currIdx = dequeue(q);

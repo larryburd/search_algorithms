@@ -61,7 +61,7 @@ int is_in_frontier(FrontierNode frontier[], int frontierSize, int nodeIdx) {
     return 0;
 }
 
-char** greedy_search(Graph graph, char start, char goal) {
+char** greedy_search(Graph graph, char start, char goal, int* checks) {
     int startIdx = -1;
     int endIdx = -1;
     int pathIdx = 0;
@@ -103,6 +103,7 @@ char** greedy_search(Graph graph, char start, char goal) {
         }
 
         visited[currIdx] = 1;
+        ++checks;
 
         /* Check if we reached the goal */
         if (currIdx == endIdx) {
@@ -157,7 +158,7 @@ char** greedy_search(Graph graph, char start, char goal) {
     return path;
 }
 
-char** greedy_search_weighted(Graph graph, char start, char goal) {
+char** greedy_search_weighted(Graph graph, char start, char goal, int* checks) {
     int startIdx = -1;
     int endIdx = -1;
     int pathIdx = 0;
@@ -199,6 +200,7 @@ char** greedy_search_weighted(Graph graph, char start, char goal) {
         }
 
         visited[currIdx] = 1;
+        ++checks;
 
         /* Check if we reached the goal */
         if (currIdx == endIdx) {
