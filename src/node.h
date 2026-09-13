@@ -32,5 +32,6 @@ Node* create_node(char name, int x, int y);
 void addParent(Node* node, Node* parent);
 void addChild(Node* node, Node* child, float cost);
 void free_node(Node* node);
+int findNode(Graph graph, char name);
 
 #endif

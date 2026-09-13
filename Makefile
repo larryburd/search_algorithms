@@ -11,6 +11,8 @@ OBJECTS = $(BUILD_DIR)/node.o \
           $(BUILD_DIR)/dfs.o \
           $(BUILD_DIR)/bfs.o \
 		  $(BUILD_DIR)/greedy.o \
+          $(BUILD_DIR)/astar.o \
+		  $(BUILD_DIR)/hillClimb.o \
           $(BUILD_DIR)/path_util.o \
           $(BUILD_DIR)/string_util.o
 
@@ -38,6 +40,12 @@ $(BUILD_DIR)/bfs.o: src/algs/bfs.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILD_DIR)/greedy.o: src/algs/greedy.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/astar.o: src/algs/astar.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/hillClimb.o: src/algs/hillClimb.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILD_DIR)/path_util.o: src/algs/path_util.c

@@ -2,8 +2,11 @@
 #include "algs/dfs.h"
 #include "algs/bfs.h"
 #include "algs/greedy.h"
+#include "algs/astar.h"
+#include "algs/hillClimb.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "node.h"
 #include <jansson.h>
 
@@ -154,6 +157,41 @@ int main(int argc, char* argv[]) {
     path = greedy_search_weighted(graph, 'A', 'S', &grdyWghtdChecks);
     print_path(path);
     printf("Nodes checked: %d\n", grdyWghtdChecks);
+    free_path(path);
+
+    // Perform A* search from A to S
+    printf("\n========================================\n");
+    printf("A* SEARCH\n");
+    printf("Start: A → Goal: S\n");
+    printf("========================================\n");
+
+    int astarChecks = 0;
+    path = astar_search(graph, 'A', 'S', &astarChecks);
+    print_path(path);
+    printf("Nodes checked: %d\n", astarChecks);
+    free_path(path);
+
+    // Perform Hill Climb search from A to S
+    printf("\n========================================\n");
+    printf("HILL CLIMB SEARCH\n");
+    printf("Start: A → Goal: S\n");
+    printf("========================================\n");
+
+    int hillClimbChecks = 0;
+    bool goalReached = false;
+    path = hillClimbing(graph, 'A', 'S', &hillClimbChecks);
+    for (int i = 0; i < hillClimbChecks; ++i) {
+        if (path[i][0] == 'S') {
+            goalReached = true;
+            break;
+        } 
+    }
+
+    if (!goalReached)
+        puts("FAILED TO REACH GOAL!");
+
+    print_path(path);
+    printf("Node checks: %d\n", hillClimbChecks);
     free_path(path);
 
     // Free memory

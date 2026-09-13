@@ -1,0 +1,13 @@
+#ifndef ASTAR_H
+#define ASTAR_H
+
+#include "../node.h"
+#include "path_util.h"
+
+#define MAX_PATH_LENGTH 50
+#define MAX_FRONTIER 100
+
+/* Function declarations */
+char** astar_search(Graph graph, char start, char goal, int* checks);
+
+#endif

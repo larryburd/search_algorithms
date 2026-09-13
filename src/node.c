@@ -40,6 +40,15 @@ void addChild(Node* node, Node* child, float cost) {
     node->numChildren++;
 }
 
+int findNode(Graph graph, char name) {
+    /* loop through each node and return the node with with the given name */
+    for (int i = 0; i < graph.numNodes; ++i) {
+        if (graph.nodes[i]->name == name)
+            return i;
+    }
+
+    return -1;
+}
 void free_node(Node* node) {
     free(node->parents);
     free(node->children);
